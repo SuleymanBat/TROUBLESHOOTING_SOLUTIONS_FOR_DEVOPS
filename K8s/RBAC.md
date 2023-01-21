@@ -103,6 +103,10 @@ First let's look at the config file with the command below;
 
 ###### Create the necessary roles and rolebindings required for the "dev-user" to create, list and delete pods in the "default" namespace. Use the given spec:
 
+#### HINT!!!
+
+Use the command "kubectl create" to create a role "developer" and rolebinding "dev-user-binding" in the "default" namespace.
+
 > Role:developer
 
 > Role Resources: pods
