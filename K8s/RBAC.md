@@ -45,8 +45,11 @@ Use the command to list the available roles in the default namespace.
 The kube-proxy role in the kube-system namespace is given access to the following Kubernetes resources:
 
 > endpoints
+
 > nodes
+
 > pods
+
 > services
 
 It also has the ability to perform the following actions:
