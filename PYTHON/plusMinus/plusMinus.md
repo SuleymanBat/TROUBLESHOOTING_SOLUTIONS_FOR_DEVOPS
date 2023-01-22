@@ -7,17 +7,17 @@ Note: This challenge introduces precision problems.
 
 #### Example
 
-> arr = [1,1,0,-1,-1]
+> ``arr = [1,1,0,-1,-1]``
 
 There are n=5 elements, two positive, two negative and one zero. 
 
 Their ratios are printed as:
 
-> 0.400000
+> ``0.400000``
 
-> 0.400000
+> ``0.400000``
 
-> 0.200000
+> ``0.200000``
 
 
 ##### plusMinus has the following parameter(s):
@@ -50,11 +50,11 @@ proportion of zeros
 
 #### Sample Output
 
-> 0.500000
+> ``0.500000``
 
-> 0.333333
+> ``0.333333``
 
-> 0.166667
+> ``0.166667``
 
 #### Explanation
 
