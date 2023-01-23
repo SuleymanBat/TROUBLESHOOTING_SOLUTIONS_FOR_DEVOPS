@@ -57,3 +57,70 @@ In Kubernetes containers are encapsulated in PODs.You may choose to configure th
 To set the same configuration on the container level move the whole section under the container specification and put right below "spec".
 
 Capabilities are only supported at the container level and not at the POD level.
+
+### WARMUP 1:
+##### WHAT IS THE USER USED TO EXECUTE THE SLEEP PROCESS WITHIN THE "ubuntu-sleeper" POD? IN THE CURRENT(DEFAULT) NAMESPACE
+
+> ``k get pod``
+
+> ``k exec ubuntu-sleeper -- whoami``
+
+### WARMUP 2:
+##### EDIT THE POD "ubuntu-sleeper" TO RUN THE SLEEP PROCESS WITH USER id "1010". 
+
+>``Pod Name: ubuntu-sleeper``
+
+>``Image Name:ubuntu``
+
+>``SecurityContext: User 1010``
+
+> ``k edit pod ubuntu-sleeper``
+
+Add the "SecurityContext" code block under the "spec" in the definition file which is opened by vim editör. as below;
+
+> ``securityContext:``
+
+>    ``runAsUser: 1010``
+
+After save and exit from vim file execute this commad like that;
+
+> `` k replace --force -f /tmp/kubectl-edit-3003420857.yaml``
+
+### WARMUP 3:
+##### A pod definition file named "multi-pod.yaml" is given. With what user are the processes in the "web" container started? The pod is created with multiple containers and security contexts defined at the "pod" and "Container" level.
+
+> `` cat multi-pod.yaml ``
+
+Here we should look at "securityContext" section under the "containers"
+
+### WARMUP 4:
+##### With what user are the processes in the "sidecar" container started? The pod is created with multiple containers and security contexts defined at the "pod" and "container" level.
+
+> `` cat multi-pod.yaml ``
+
+Here we should look at "securityContext" section under the "containers". If there are any "context" or if we can not see we should consider the "securityContext  under the spec section.
+
+### WARMUP 5:
+#### Update pod "ubuntu-sleeper" to run as Root user and with the "SYS_TIME" capability.
+
+>``Pod Name: ubuntu-sleeper``
+>``Image Name: ubuntu``
+>``SecurityContext: Capability SYS_TIME"
+
+> ``k edit pod  ubuntu-sleeper``
+
+When definition file opened we should find the "securityContext section" and We should add "capabilities" like that;
+
+> ``capabilities:``
+
+> ``add: [ "SYS_TIME" ]``
+
+> `` k replace --force -f /tmp/kubectl-edit-25879461.yaml``
+
+
+
+
+
+
+
+
