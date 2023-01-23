@@ -104,8 +104,10 @@ Here we should look at "securityContext" section under the "containers". If ther
 #### Update pod "ubuntu-sleeper" to run as Root user and with the "SYS_TIME" capability.
 
 >``Pod Name: ubuntu-sleeper``
+
 >``Image Name: ubuntu``
->``SecurityContext: Capability SYS_TIME"
+
+>``SecurityContext: Capability SYS_TIME``
 
 > ``k edit pod  ubuntu-sleeper``
 
@@ -117,10 +119,23 @@ When definition file opened we should find the "securityContext section" and We 
 
 > `` k replace --force -f /tmp/kubectl-edit-25879461.yaml``
 
+#### WARMUP 6:
+###### Now update the pod to also make use of the "NET_ADMIN" capability. Based on those information;
 
+> ´´PodName: ubuntu-sleeper``
 
+> ``ImageName: ubuntu``
 
+>``SecurityContext: Capability SYS_TIME``
 
+>``SecurityContext: Capability NET_ADMIN``
 
+> ``k edit pod ubuntu-sleeper``
 
+Let's add "net_admin";
 
+> ``add:``
+
+> ``- NET_ADMIN``
+
+> ``k replace --force -f /tmp/kubectl-edit-25879861.yaml``
