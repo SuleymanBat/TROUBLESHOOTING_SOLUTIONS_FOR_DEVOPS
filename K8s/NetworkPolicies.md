@@ -94,4 +94,8 @@ spec:
 
 Note: We have also allowed Egress traffic to TCP and UDP port. This has been added to ensure that the internal DNS resolution works from the internal pod. Remember: The kube-dns service is exposed on port 53:
 
+> `` k create -f internalpolicy.yaml``
+
+> ``k describe netpol internal-policy"
+
 > ``kubectl get svc -n kube-system ``
