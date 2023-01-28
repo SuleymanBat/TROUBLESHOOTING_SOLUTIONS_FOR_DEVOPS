@@ -1,21 +1,24 @@
 When it comes to storage in Docker, there are two concepts.First is Storage drivers and secondly Volume driver plugins.We are going to see where and how Docker stores data and how it manages file systems of the containers. 
 
-When you install DOcker on a system it creates this folder structure at "/var/lib/docker/."
+When you install Docker on a system it creates this folder structure at;
+
+>`` /var/lib/docker``
+
 You have multiple folders under it called AUFS, containers, image volumes, etc. This is where Docker stores all its data by default. When we mention data, its mean files related to images and containers running on Docker host. All files related to containers are stored under the containers folder and the files related to images are stored under the image folder.When Docker build images it builds these in a "layered architecture". Each line of instruction in the Dockerfile creates a new layer in the Docker image with just the changes from the previous layer. For example; 
 
 > ``Dockerfile``
 
 > ``FROM Ubuntu``               (This is LAYER1. Base Ubuntu Layer 120 MB)
 
->``RUN apt-get update && apt-get -y install python  (This is Layer2. Changes in apt packages 306 MB)
+>``RUN apt-get update && apt-get -y install python  (This is Layer2. Changes in apt packages 306 MB)``
 
->``RUN pip install flask flask-mysql   (Layer3. Changes in pip packages  6,3 MB)
+>``RUN pip install flask flask-mysql   (Layer3. Changes in pip packages  6,3 MB)``
 
->``COPY . /opt/source-code          (Layer4.Source code 229 B)
+>``COPY . /opt/source-code          (Layer4.Source code 229 B)``
 
->``ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run   (Layer5. Update Entrypoint 0 B)
+>``ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run   (Layer5. Update Entrypoint 0 B)``
 
->``docker build Dockerfile -t suleyman/my-custom-app
+>``docker build Dockerfile -t suleyman/my-custom-app``
 
 
 The first layer is a base Ubuntu operating system, followed by the second instruction that creates a second layerwhich installs all the APT packages and thenthird instruction creates a third layer which with the Python packages finally fifth layer that updates the entry point of the image. Since each layer only stores the from the previous layer, it is reflected in the size as well.
@@ -34,11 +37,11 @@ iF WE WERE WORKING with a database and we would like to preserve the data create
 
 it creates a folder under;
 
->``/var/lib/docker
+>``/var/lib/docker``
 
 >   ``volumes``
 
->       ``sulo_volumes``
+>    ``sulo_volumes``
 
 Then when I run the docker container like that;
 
