@@ -10,13 +10,13 @@ You have multiple folders under it called AUFS, containers, image volumes, etc. 
 
 > ``FROM Ubuntu``               (This is LAYER1. Base Ubuntu Layer 120 MB)
 
->``RUN apt-get update && apt-get -y install python  (This is Layer2. Changes in apt packages 306 MB)``
+>``RUN apt-get update && apt-get -y install python``  (This is Layer2. Changes in apt packages 306 MB)
 
->``RUN pip install flask flask-mysql   (Layer3. Changes in pip packages  6,3 MB)``
+>``RUN pip install flask flask-mysql``   (Layer3. Changes in pip packages  6,3 MB)
 
->``COPY . /opt/source-code          (Layer4.Source code 229 B)``
+>``COPY . /opt/source-code``          (Layer4.Source code 229 B)
 
->``ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run   (Layer5. Update Entrypoint 0 B)``
+>``ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run``   (Layer5. Update Entrypoint 0 B)
 
 >``docker build Dockerfile -t suleyman/my-custom-app``
 
@@ -57,3 +57,5 @@ Docker uses "storage devices" to enable layered architecture. Storage drivers (A
 >``docker run -it --name mysql --volume-driver rexray/ebs --mount src=ebs-vol,target=/var/lib/mysql mysql``
 
 This will create a container and attach a volume from the AWS Cloud.
+
+Container runtime interface(CRI) is a standard that defines how an orchestration solution like Kubernetes would communicate with "container run times" like Docker. To extent support for different networking solutions,"the container networking interface" was introduced. Now any new networking vendors could simply develop their plugin based on the CNI standards and make their solution work with Kubernetes. "The container storage interface"(CSI) was developed to support to support multiple storage solutions.With CS, you can now write your own drivers for your own storage to work with Kubernetes.
