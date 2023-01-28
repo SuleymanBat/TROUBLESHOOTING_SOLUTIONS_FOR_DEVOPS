@@ -59,3 +59,7 @@ Docker uses "storage devices" to enable layered architecture. Storage drivers (A
 This will create a container and attach a volume from the AWS Cloud.
 
 Container runtime interface(CRI) is a standard that defines how an orchestration solution like Kubernetes would communicate with "container run times" like Docker. To extent support for different networking solutions,"the container networking interface" was introduced. Now any new networking vendors could simply develop their plugin based on the CNI standards and make their solution work with Kubernetes. "The container storage interface"(CSI) was developed to support to support multiple storage solutions.With CS, you can now write your own drivers for your own storage to work with Kubernetes.
+
+### ![VISUAL PICTURE ABOUT CSI-CNI-CRI ](https://github.com/SuleymanBat/TROUBLESHOOTING_SOLUTIONS_FOR_DEVOPS/blob/b0f9acb2fc5b215a49ec641f6feaf0eb4b309f1a/K8s/CSI-CRI-CNI.PNG)
+
+
