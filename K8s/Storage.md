@@ -62,4 +62,4 @@ Container runtime interface(CRI) is a standard that defines how an orchestration
 
 ### ![VISUAL PICTURE ABOUT CSI-CNI-CRI ](https://github.com/SuleymanBat/TROUBLESHOOTING_SOLUTIONS_FOR_DEVOPS/blob/b0f9acb2fc5b215a49ec641f6feaf0eb4b309f1a/K8s/CSI-CRI-CNI.PNG)
 
-
+The CSI defines a set of RPCs(Remote Procedure Calls) that will be called by the container orchestrator, and these must be implemented by the storage drivers. For example, CSI says that when a pod is created and requires a volume, the container orchestrator in this case Kubernetes should call the create volume RPC(Remote Procedure Calls) and pass a set of details such as the volume name. The storage driver should implement this RPC and handle that request and provision a new on the storage array and return the results of the operation. Similarly container orchestrator should call the delete volume RPC when a volume is to be deleted, and storage driver should implement the code to decommission the volume from array when that call is made.   
