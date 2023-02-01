@@ -46,4 +46,32 @@ Let's check the pod;
 
 >``ls``
 
-### WARMUP 3:
+### WARMUP 3:Create a Persistent Volume with the given specification.
+
+
+Volume Name: pv-log
+
+Storage: 100Mi
+
+Access Modes: ReadWriteMany
+
+Host Path: /pv/log
+
+Reclaim Policy: Retain
+
+
+
+
+
+
+### WARMUP 4: Let us claim some of that storage for our application. Create a Persistent Volume Claim with the given specification.
+
+
+Volume Name: claim-log-1
+
+Storage Request: 50Mi
+
+Access Modes: ReadWriteOnce
+
+
+### WARMUP 5:
