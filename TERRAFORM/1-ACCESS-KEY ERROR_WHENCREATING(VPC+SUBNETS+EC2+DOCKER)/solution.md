@@ -11,13 +11,14 @@ I tried to create a VPC and two Subnets(Private+Public)+EC2 instance+Docker with
 }``
 # Create the Key Pair
 
-`` resource "aws_key_pair" "key_pair" {
+resource "aws_key_pair" "key_pair" {
   
      key_name   = "mykey"  
   
      public_key = tls_private_key.key_pair.public_key_openssh
 
-} ``
+} 
+
 # Save file
 
 ``resource "local_file" "ssh_key" {
