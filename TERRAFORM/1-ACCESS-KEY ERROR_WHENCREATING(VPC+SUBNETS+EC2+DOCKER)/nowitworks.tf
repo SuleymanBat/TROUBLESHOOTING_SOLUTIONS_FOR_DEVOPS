@@ -19,7 +19,7 @@ provider "aws" {
 
 locals {
   user = "sulo"
-  pem_file = "nese" # change your pem key here !!!
+  pem_file = "changethis" # change your pem key here !!!
 }
 
 
