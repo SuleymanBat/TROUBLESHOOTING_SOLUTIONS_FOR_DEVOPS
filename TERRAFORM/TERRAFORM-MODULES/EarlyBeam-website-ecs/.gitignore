@@ -1,0 +1,12 @@
+# Ignore all .txt files in the repository
+*.txt
+
+# Ignore a single file in the repository
+secret_file.txt
+
+# Ignore all files in the logs/ directory and its subdirectories
+logs/
+
+# Ignore all files in the build/ directory, except for the dist/ subdirectory
+build/*
+!build/dist/
