@@ -161,6 +161,16 @@ or try this;
 
 >``ps -aux | grep weave``
 
+or try this as an option;
+
+>``k get pods -n kube-system``
+
+later execute this command;
+
+>``k logs -n kube-system weave-net-1232 <containername>``
+
+
+
 
 #### What is the default gateway configured on the PODs scheduled on node01? Try scheduling a pod on node01 and check ip route output
 
