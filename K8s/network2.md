@@ -183,3 +183,15 @@ SSH to the node01 by running the command:
  >``ip route``
  
   command and look at the weave line.
+
+In the output you will come across as follows you should look at the "weave line(2nd)" like that;
+
+>``root@node01 ~ ➜  ip route``
+
+>``default via 172.25.0.1 dev eth1`` 
+
+>``10.244.0.0/16 dev weave proto kernel scope link src 10.244.192.0`` 
+
+>``172.25.0.0/24 dev eth1 proto kernel scope link src 172.25.0.60`` 
+
+>``192.32.201.0/24 dev eth0 proto kernel scope link src 192.32.201.11`` 
