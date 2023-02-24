@@ -39,6 +39,10 @@ Run the command:
 
 >``kubectl -n kube-system describe deployments.apps coredns | grep -A2 Args | grep Corefile``
 
+As a second option execute this command;
+
+>``k describe pods coredns-<pod_name> -n kube-system | grep coredns``
+
 ## How is the Corefile passed into the CoreDNS POD?
 
 Use the 
@@ -51,6 +55,7 @@ look at the coredns ConfigMap. It's passed through the ConfigMap volume in the d
 ## What is the name of the ConfigMap object created for Corefile?
 
 Run the command: 
+
 >``kubectl get configmap -n kube-system ``
 
 and identify the name.
