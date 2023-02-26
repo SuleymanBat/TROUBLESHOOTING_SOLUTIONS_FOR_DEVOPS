@@ -128,3 +128,20 @@ When a pod or a container running inside the Kubernetes cluster makes a request 
 ServiceAccounts can be created using the Kubernetes API or through configuration files, and can be associated with specific namespaces or the entire cluster. By default, each namespace in a Kubernetes cluster has its own default ServiceAccount, which is used by pods or containers running in that namespace unless otherwise specified.
 
 ServiceAccounts play an important role in securing and managing access to resources in a Kubernetes cluster. They provide a mechanism for authenticating and authorizing requests to the API server, as well as managing permissions and access control for individual pods or containers running inside the cluster.
+
+
+we can create an Ingress resource from the imperative way like this:-
+
+Format - kubectl create ingress <ingress-name> --rule="host/path=service:port"
+
+Example - kubectl create ingress ingress-test --rule="wear.my-online-store.com/wear*=wear-service:80"
+
+Find more information and examples in the below reference link:-
+
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-ingress-em-
+
+References:-
+
+https://kubernetes.io/docs/concepts/services-networking/ingress
+
+
