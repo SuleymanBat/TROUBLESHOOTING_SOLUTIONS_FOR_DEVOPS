@@ -89,30 +89,55 @@ Solution manifest file to change the path to the video streaming application to 
 
 '''
 apiVersion: networking.k8s.io/v1
+
 kind: Ingress
+
 metadata:
+
   annotations:
+
     nginx.ingress.kubernetes.io/rewrite-target: /
+
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
   name: ingress-wear-watch
+
   namespace: app-space
+
 spec:
+
   rules:
+
   - http:
+
       paths:
+
       - backend:
+
           service:
+
             name: wear-service
+
             port: 
+
               number: 8080
+
         path: /wear
+
         pathType: Prefix
+
       - backend:
+
           service:
+
             name: video-service
+
             port: 
+
               number: 8080
+
         path: /stream
+
         pathType: Prefix
 '''
 
@@ -129,37 +154,69 @@ Solution manifest file to add a new path to our ingress service to make the appl
 
 '''
 apiVersion: networking.k8s.io/v1
+
 kind: Ingress
+
 metadata:
+
   annotations:
+
     nginx.ingress.kubernetes.io/rewrite-target: /
+
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
   name: ingress-wear-watch
+
   namespace: app-space
+
 spec:
+
   rules:
+
   - http:
+
       paths:
+
       - backend:
+
           service:
+
             name: wear-service
+
             port: 
+
               number: 8080
+
         path: /wear
+
         pathType: Prefix
+
       - backend:
+
           service:
+
             name: video-service
+
             port: 
+
               number: 8080
+
         path: /stream
+
         pathType: Prefix
+
       - backend:
+
           service:
+
             name: food-service
+
             port: 
+
               number: 8080
+
         path: /eat
+
         pathType: Prefix
 '''
 
@@ -194,23 +251,41 @@ Use the command
 Solution manifest file to create a new ingress service to make the application available at /pay as follows:
 '''
 apiVersion: networking.k8s.io/v1
+
 kind: Ingress
+
 metadata:
+
   name: test-ingress
+
   namespace: critical-space
+
   annotations:
+
     nginx.ingress.kubernetes.io/rewrite-target: /
+
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
 spec:
+
   rules:
+
   - http:
+
       paths:
+
       - path: /pay
+
         pathType: Prefix
+
         backend:
+
           service:
+
            name: pay-service
+
            port:
+           
             number: 8282
 '''
 
