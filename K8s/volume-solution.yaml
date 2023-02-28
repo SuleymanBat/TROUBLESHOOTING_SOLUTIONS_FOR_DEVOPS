@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webpage-server
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.15
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: webpage
+          mountPath: /var/www/html
+          readOnly: true
+  volumes:
+    - name: webpage
+      persistentVolumeClaim:
+        claimName: webpage-pvc
+
+
+
+
+###In this file, we define a Kubernetes Pod with the name webpage-server. 
+###The Pod runs a single container called nginx, which uses the nginx:1.15 image. 
+###The container exposes port 80. Additionally, we define a persistent volume named webpage, 
+###which is mounted on the path /var/www/html in read-only mode.
+
+###Note that we are referencing a persistent volume claim (PVC) called webpage-pvc to attach the persistent volume to the Pod. 
+###Before creating the Pod, you'll need to create a persistent volume and a corresponding PVC with the appropriate specifications.

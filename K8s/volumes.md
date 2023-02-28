@@ -61,9 +61,6 @@ Reclaim Policy: Retain
 
 
 
-
-
-
 ### WARMUP 4: Let us claim some of that storage for our application. Create a Persistent Volume Claim with the given specification.
 
 
@@ -74,4 +71,23 @@ Storage Request: 50Mi
 Access Modes: ReadWriteOnce
 
 
-### WARMUP 5:
+# TASK: Your team has deployed on Kubernetes a simple app which generates a static page with resources and writes it to a mounted volume.The app generates the following files and directories on the mounted drive:
+- index.html - the specifying the static page
+- css/ - directory containing stylesheet assets 
+- img/ - directory containing images served on the page
+
+The app runs on K8s as a Pod and mounts a persistent volume named "webpage".
+The team has asked you to deploy the Pod, which will mount the persistent volume and will serve the page.
+Write a Kubernetes Pod Definition according to the expectations listed below:
+-The Pod has the name "webpage-server"
+-The Pod runs a single container called "nginx" which uses the image "nginx:1.15;
+-The container exposes port 80;
+-The container mounts the "webpage" persistent volume on the path "/var/www/html;
+-The volume is mounted in "read-only" mode
+
+For this test assume that:
+-The Pod will be created in the "default" namespace(it is not expected to define a namespace)
+-Your solution will be applied using kubectl apply -n default -f solution.yaml
+
+this task's solution is in the "volume-solution.yaml" Please find that in the same directory.
+
